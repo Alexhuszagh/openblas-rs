@@ -1,0 +1,24 @@
+[package]
+name = "openblas"
+version = "0.1.0"
+edition = "2021"
+authors = ["Alex Huszagh <ahuszagh@gmail.com>"]
+license = "BSD-3-Clause"
+keywords = ["vector", "matrix", "algebra", "linear", "math"]
+repository = "https://github.com/Alexhuszagh/openblas-rs"
+homepage = "https://github.com/Alexhuszagh/openblas-rs"
+documentation = "https://docs.rs/openblas"
+categories = ["mathematics", "no-std"]
+description = """
+Bindings to the OpenBLAS library, an optimized BLAS library,
+for the BLAS and LAPACK interface.
+"""
+
+[workspace]
+
+[dependencies]
+openblas-sys = { version = "0.1.0", path = "openblas-sys", default-features = false }
+
+[features]
+default = ["lapack"]
+lapack = ["openblas-sys/lapack"]
